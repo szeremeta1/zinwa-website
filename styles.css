@@ -225,22 +225,35 @@ body {
 }
 
 .phone-mockup {
-    width: 300px;
-    background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
-    border-radius: 28px;
-    padding: 18px 16px;
-    box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    width: 280px;
+    background: linear-gradient(180deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+    border-radius: 14px;
+    padding: 14px 12px;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
     animation: float 6s ease-in-out infinite;
     position: relative;
 }
 
+.phone-mockup::before {
+    /* thin silver bezel around the phone body */
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 12px;
+    pointer-events: none;
+    box-shadow: 0 0 0 3px rgba(200,200,200,0.06) inset;
+}
+
 .phone-bezel-top {
     width: 100%;
-    height: 45px;
-    background: linear-gradient(180deg, var(--secondary-black) 0%, var(--primary-black) 100%);
-    border-radius: 12px 12px 0 0;
+    height: 44px;
+    background: linear-gradient(180deg, var(--secondary-black) 0%, rgba(0,0,0,0.9) 100%);
+    border-radius: 10px 10px 0 0;
     margin-bottom: 0;
     position: relative;
     display: flex;
@@ -248,28 +261,19 @@ body {
     justify-content: center;
 }
 
-.phone-bezel-top::before {
+.phone-bezel-top::after {
+    /* speaker grill: subtle row of dots */
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px;
+    width: 70px;
     height: 8px;
-    background: rgba(0, 0, 0, 0.5);
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 10%, transparent 11%);
+    background-size: 8px 8px;
     border-radius: 4px;
-}
-
-.phone-bezel-top::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translateY(-50%);
-    width: 6px;
-    height: 6px;
-    background: rgba(100, 100, 100, 0.6);
-    border-radius: 50%;
+    opacity: 0.6;
 }
 
 .phone-screen {
@@ -285,106 +289,66 @@ body {
 
 .phone-bezel-bottom {
     width: 100%;
-    background: linear-gradient(180deg, var(--primary-black) 0%, var(--secondary-black) 100%);
-    border-radius: 0 0 12px 12px;
-    padding: 12px 8px 8px 8px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.95) 100%);
+    border-radius: 0 0 10px 10px;
+    padding: 10px 8px 8px 8px;
 }
 
-.phone-logo {
-    text-align: center;
-    font-size: 9px;
-    font-weight: var(--font-weight-medium);
-    color: rgba(255, 255, 255, 0.3);
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-    font-style: italic;
+.phone-silver-strip {
+    height: 6px;
+    width: 60%;
+    margin: 0 auto 8px auto;
+    background: linear-gradient(90deg, #d9d9d9, #cfcfcf, #e6e6e6);
+    border-radius: 3px;
+    opacity: 0.9;
 }
 
-/* BlackBerry Classic trackpad and buttons area */
 .phone-trackpad-area {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 8px 12px;
-    margin-bottom: 10px;
-    gap: 4px;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+    gap: 8px;
 }
 
-.call-button,
-.end-button,
-.menu-button,
-.back-button {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
+.btn-small {
+    width: 28px;
+    height: 14px;
+    border-radius: 4px;
     border: none;
     cursor: pointer;
-    position: relative;
-    box-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.6),
-        0 1px 0 rgba(255, 255, 255, 0.1) inset;
-    transition: transform 0.2s ease;
+    background: linear-gradient(180deg, #2b2b2b 0%, #1a1a1a 100%);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.6);
     flex-shrink: 0;
 }
 
-.call-button:hover,
-.end-button:hover,
-.menu-button:hover,
-.back-button:hover {
-    transform: scale(1.05);
+.btn-small:hover {
+    transform: translateY(-1px);
 }
 
-.call-button {
-    background: linear-gradient(135deg, #2d7a2d 0%, #1f5a1f 100%);
-}
-
-.menu-button,
-.back-button {
-    background: linear-gradient(135deg, var(--dark-gray) 0%, var(--medium-gray) 100%);
-}
-
-.end-button {
-    background: linear-gradient(135deg, #7a2d2d 0%, #5a1f1f 100%);
-}
-
-.trackpad {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-    border-radius: 50%;
-    border: 1.5px solid var(--dark-gray);
-    box-shadow: 
-        0 3px 6px rgba(0, 0, 0, 0.7) inset,
-        0 0 0 1px rgba(255, 255, 255, 0.03);
-    position: relative;
-    flex-shrink: 0;
-}
-
-.trackpad::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
-    border: 1px solid rgba(255, 255, 255, 0.02);
+.trackpad-square {
+    width: 34px;
+    height: 30px;
+    background: linear-gradient(180deg, #0d0d0d 0%, #2a2a2a 100%);
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.6) inset;
+    display: inline-block;
 }
 
 .phone-keyboard {
     width: 100%;
-    padding: 8px;
-    background: var(--primary-black);
+    padding: 8px 6px 6px 6px;
+    background: linear-gradient(180deg, #0f0f0f 0%, #141414 100%);
     border-radius: 6px;
 }
 
 .keyboard-row {
     display: flex;
     justify-content: center;
-    gap: 3px;
-    margin-bottom: 3px;
+    gap: 6px;
+    margin-bottom: 6px;
 }
 
 .keyboard-row:last-child {
@@ -392,23 +356,22 @@ body {
 }
 
 .key {
-    width: 22px;
+    width: 26px;
     height: 20px;
-    background: linear-gradient(135deg, #2d2d2d 0%, #404040 100%);
-    border-radius: 3px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 
-        0 2px 3px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    background: linear-gradient(180deg, #353535 0%, #2b2b2b 100%);
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.02) inset;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0;
-    color: transparent;
+    font-size: 0.625rem;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
 }
 
 .key.wide {
-    width: 38px;
+    width: 44px;
 }
 
 .key.extra-wide {
