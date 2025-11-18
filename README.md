@@ -55,21 +55,6 @@ To view the website locally:
 - Mobile-first responsive design
 - No BlackBerry branding (Zinwa branding only)
 
-## Technical Specifications
-
-- **Product**: Zinwa Q25 (Modified BlackBerry Q20 Classic)
-- **Display**: 3.5" Touchscreen IPS LCD (720 x 720)
-- **Processor**: Quad-core 1.5 GHz
-- **RAM**: 3GB
-- **Storage**: 16GB + microSD
-- **Camera**: 13MP rear, 2MP front
-- **Battery**: 3500mAh removable
-- **Keyboard**: Physical QWERTY
-
-## Contact
-
-- **Location**: Xiamen, China
-- **Email**: info@zinwa.cn
 
 ## License
 
