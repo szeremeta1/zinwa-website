@@ -19,10 +19,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
-if (menuToggle) {
+if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', function() {
         navMenu.classList.toggle('active');
         this.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a nav link
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
     });
 }
 
@@ -87,46 +96,6 @@ document.querySelectorAll('.product-feature, .feature-item, .spec-category').for
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
 });
-
-// Enhanced mobile menu
-if (window.innerWidth <= 968) {
-    const style = document.createElement('style');
-    style.textContent = `
-        .nav-menu {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            right: 0;
-            background-color: white;
-            flex-direction: column;
-            padding: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        .nav-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: all;
-        }
-        
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-    `;
-    document.head.appendChild(style);
-}
 
 // Keyboard navigation support
 document.addEventListener('keydown', function(e) {
